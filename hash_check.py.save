@@ -1,0 +1,11 @@
++dmport hashlib
+
+def get_hash(filename):
+    hasher = hashlib.sha256()
+    with open(filename, 'rb') as f:
+        buf = f.read()
+        hasher.update(buf)
+    return hasher.hexdigest()
+
+print(f"Fingerprint for your log: {get_hash('network_logs.txt')}")
+
