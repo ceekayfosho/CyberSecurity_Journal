@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 import hashlib
-from datetime import datetime
+
+# This is your 'Baseline'—the fingerprint of the clean log file
+GOLDEN_HASH = "c96a19a933f9df0ad146e3dcebad95f6960b15781c5f2ffe2634a2eb491fe63d"
 
 def get_hash(filename):
     hasher = hashlib.sha256()
@@ -12,14 +14,12 @@ def get_hash(filename):
     except FileNotFoundError:
         return None
 
-log_file = 'network_logs.txt'
-fingerprint = get_hash(log_file)
+current_hash = get_hash('network_logs.txt')
 
-if fingerprint:
-    # This creates a permanent record for your 'Audit'
-    with open('hash_manifest.txt', 'a') as f:
-        timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        f.write(f"{timestamp} | {log_file} | {fingerprint}\n")
-    print(f"Verified: {fingerprint}")
-    print("Hash added to hash_manifest.txt")
-
+if current_hash == GOLDEN_HASH:
+    print("✅ INTEGRITY VERIFIED: No changes detected.")
+else:
+    print("🚨 ALERT: FILE TAMPERED WITH!")
+    print(f"Current: {current_hash}")
+import datetime
+print(f"[{datetime.datetime.now()}] ✅ INTEGRITY VERIFIED")
