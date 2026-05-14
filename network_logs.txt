@@ -10,3 +10,15 @@ Thu May 14 10:20:35 SAST 2026
 --- SCANNING FOR OPEN PORTS ---
 No open ports found.
 --- CHECK COMPLETE ---
+--- SYSTEM HEALTH CHECK ---
+Thu May 14 11:00:00 SAST 2026
+--- NETWORK STATUS ---
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet 26.24.81.250  netmask 255.255.255.0  destination 26.24.81.250
+        inet 100.99.242.245  netmask 255.255.255.0  destination 100.99.242.245
+        inet 12.22.93.174  netmask 255.255.255.0  destination 12.22.93.174
+--- STORAGE USAGE ---
+/dev/block/dm-51  21G  18G  2.8G  87% /storage/emulated/0/Android/obb
+--- SCANNING FOR OPEN PORTS ---
+No open ports found.
+--- CHECK COMPLETE ---
