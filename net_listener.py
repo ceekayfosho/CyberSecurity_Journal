@@ -29,5 +29,22 @@ try:
 except KeyboardInterrupt:
     print("\n[!] Listener stopping...")
 finally:
+    while True:
+        client, addr = server.accept()
+        print(f"[*] New connection from: {addr[0]}")
+        
+        try:
+            # Send the banner we added earlier
+            banner = "--- SECURE MONITORING SYSTEM v1.0 ---\n"
+            client.send(banner.encode('utf-8'))
+
+            data = client.recv(1024)
+            if data:
+                print(f"[*] Received: {data.decode('utf-8').strip()}")
+        except Exception as e:
+            print(f"[!] Connection error: {e}")
+        finally:
+            client.close() # Always close the connection properly
+
     server.close()
 
