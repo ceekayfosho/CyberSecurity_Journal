@@ -87,3 +87,5 @@ Fri May 15 00:00:00 SAST 2026
 --- SCANNING FOR OPEN PORTS ---
 No open ports found.
 --- CHECK COMPLETE ---
+Intruder detected from: 127.0.0.1
+Intruder detected from: 127.0.0.1
